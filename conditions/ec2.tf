@@ -1,7 +1,7 @@
 resource "aws_instance" "example" {
   ami           = var.ami_id
   # if dev t3.micro, otherwise t3.small
-  instance_type = variable.environmet == "dev" ? "t3.micro" : "t3.small"
+  instance_type = var.envirnment == "dev" ? "t3.micro" : "t3.small"
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
 
   tags = var.ec2_tags
